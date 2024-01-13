@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photostudio Illary</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/w3.css">
+    
+</head>
+
+<body>
+    
+    <body class="w3-light-grey">
+
+    <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center" id="w3-sidebar">
+        <a href="#home" class="w3-bar-item w3-button w3-small w3-dark-grey">
+            <i class="w3-small"></i>
+            <p>HOME</p>
+        </a>
+        <a href="#anfrage" class="w3-bar-item w3-button w3-small w3-dark-grey">
+            <i class="w3-small"></i>
+            <p>ANFRAGE</p>
+        </a>
+        <a href="#photos" class="w3-bar-item w3-button w3-small w3-dark-grey">
+            <i class="w3-small"></i>
+            <p>PHOTOS</p>
+        </a>
+    </nav>
+
+    <div class="w3-container">
+        <nav id="navigation">
+            <div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
+                <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
+                    <a href="#home" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
+                    <a href="#anfrage" class="w3-bar-item w3-button" style="width:25% !important">Anfrage</a>
+                    <a href="#photos" class="w3-bar-item w3-button" style="width:25% !important">PHOTOS</a>
+                </div>
+            </div>
+        </nav>
+
+        <main class="w3-container">
+            <section id="home">
+                <img src="/IMG/studio.jpg" alt="Fotstudio Canon Pro Photo" width="100%" height="auto" id="studio_img">
+                <h2>Info</h2>
+                <p>Als professioneller Fotograf biete ich eine breite Palette an fotografischen Dienstleistungen an.</p>
+                <p>Falls du Interesse am Shooting has, hier noch folgenden Info zu den Servicepaketen:</p>
+                <p></p>
+                <ul> 
+                    <li>Diamond  = 160 Bilder + Bildbearbeitung + Make Up Artist</li>
+                    <li>Gold     = 120 Bilder + Bildbearbeitung</li>
+                    <li>Silber   = 80 Bilder</li>
+                </ul>
+                <p></p>
+                <p>Unter "Anfrage" kann das entsprechende Servicepaket, Buchungszeit und Termin ausgewählt werden.</p>
+                <p>Der Totalbetrag wird unter "Gesamtpreis" angezeigt.</p>
+                <p>Bitte anschliessend das Anfrageformular vollständig mit "submit" senden.</p>
+                <p>Sobald dein Anfrageformular eingereicht wurde, werde ich in kürze mit dir Kontakt aufnehmen.</p> 
+            </section>
+            <p></p>
+                    
+            <section id="anfrage">
+                    
+                        <h2>Anfrage</h2>
+                        <div class="row">
+                            <p><label>Vorname</label></p>
+                            <p><input type="text" name="firstname" id="firstname"></p>
+                            <div class="error" id="firstnameErr"></div>
+                        </div>
+                    
+                        <div class="row">
+                            <label>Nachname</label>
+                            <p><input type="text" name="lastname" id="lastname"></p>
+                            <div class="error" id="lastnameErr"></div>
+                        </div>
+        
+                        <div class="row">
+                            <label>Email</label>
+                            <p><input type="text" name="email" id="email"></p>
+                            <div class="error" id="emailErr"></div>
+                        </div>
+                    
+                    <p></p>
+                    <p><label for="start">Wünschtermin</label></p>
+                    <p><input type="date" name="desired_date" id="desired_date" value="" min="2024-01-15" max="2030-12-30"></p>
+                    <div class="error" id="desired_dateErr"></div>
+
+                    <p></p>
+                    
+                    <label for="service">Servicepaket</label>
+                    <p><select name="packages" id="service_package"></p>
+                    		<option value="">Bitte auswählen</option> 
+                        <option value="diamant">Diamant</option> 
+                        <option value="gold">Gold</option> 
+                        <option value="silber">Silber</option>
+                    </select>
+                    
+                    
+                    <p></p>
+    
+                    <label for="buchung">Buchungszeit:</label>
+                    <p></p><select name="Buchungszeit" id="buchungszeit"></p>
+                        <option value="einestunde">1h</option>
+                        <option value="zweistunden">2h</option>
+                        <option value="dreistunden">4h</option>
+                    </select>
+                
+                    <p></p>
+                    
+                <section id="service">
+                    
+                    <p id=>Gesamtbetrag CHF</p>
+                    <input type="text" id="total" name="total" value="" required readonly>
+                    <div class="error" id="totalErr"></div>
+                </section>
+
+                <div class="row">
+        					<input type="submit" value="Submit" onclick="validateForm()">
+    						</div>
+    						
+    						
+                <p>RESULT: <span id="outputResult"></span></p>
+
+            </section>
+
+            <div>
+            <p><label for="aspectRatio">Seitenverhältniss</label></p>
+            <select id="aspectRatio">
+                <option value="16:9">16:9</option>
+                <option value="4:5">4:5</option>
+                <option value="1:1">1:1</option>
+                <option value="4:3">4:3</option>
+                <option value="3:2">3:2</option>
+            </select>
+            </div>
+
+            <div id="canvasSection">
+            <p><canvas id="aspectCanvas" width="400" height="300"></canvas></p>
+            </div>
+
+            <section id="photos">
+
+              <h2>Photos</h2>
+              <img src="/IMG/webimg4.jpg" alt="Portrait" width="40%" height="auto">
+              <img src="/IMG/webimg1.jpg" alt="Halloween" width="40%" height="auto">
+              <img src="/IMG/webimg3.jpg" alt="PPartyLounge" width="40%" height="auto">
+              <img src="/IMG/webimg.jpg" alt="Dancing Pole" width="40%" height="auto">
+              <img src="/IMG/Saoko_Events-69.jpg" alt="Breakdance" width="40%" height="auto">
+              <img src="/IMG/webimg2.jpg" alt="BlackwhitePortrait" width="40%" height="auto">
+              <img src="/IMG/Piranha-27.jpg" alt="Blondlady" width="40%" height="auto">
+              <img src="/IMG/Saoko_Events-167.jpg" alt="PartyPicture" width="40%" height="auto">
+            </section>
+
+            
+            
+        </main>
+    </div>
+    
+</body>
+<!--
+<script src="canvas.js"></script>
+-->
+<script src="js/calculate.js"></script>
+<script src='js/script.js'></script>
+
+</html>
